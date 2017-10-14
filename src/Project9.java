@@ -1,28 +1,28 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Project9 {
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
 
-        Car2 car = new Car2();
+        Car car = new Car();
 
         System.out.println("WELCOME");
 
-        System.out.println("fuel was empty!add gas to car");
+        System.out.println("tank is empty now!add gas to car");
         int fuel = scan.nextInt();
-        car.Gasoline(fuel);
+        scan.nextLine();
+        car.fillTheTank(fuel);
 
         boolean type = true;
         while (type) {
-            System.out.println("what you want to do?");
-            String work = scan.next();
+            //System.out.println("what you want to do?");
+            String work = scan.nextLine();
             try {
-                car.TYPE(work);
+                car.check(work);
             } catch (Exception e) {
                 System.out.println("wrong word");
                 String work2 = scan.next();
-                car.TYPE(work2);
+                car.check(work2);
             }
         }
     }
